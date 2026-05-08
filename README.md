@@ -63,17 +63,6 @@
 ![Windows](http://img.shields.io/badge/-Windows-0078D6?style=flat-square&logo=windows11&logoColor=ffffff)
 ![Ubuntu](http://img.shields.io/badge/-Ubuntu-E95420?style=flat-square&logo=ubuntu&logoColor=ffffff)
 
-<!-- Its main projects -->
-
-## 🔥 Featured Projects
-
-<a href="https://github.com/Yashasm18/Fair-Grade">
-  <img align="center" src="https://github-readme-stats.vercel.app/api/pin/?username=Yashasm18&repo=Fair-Grade&theme=transparent&hide_border=true" />
-</a>
-<a href="https://github.com/Yashasm18/email-triage-env">
-  <img align="center" src="https://github-readme-stats.vercel.app/api/pin/?username=Yashasm18&repo=email-triage-env&theme=transparent&hide_border=true" />
-</a>
-
 <!-- Your github readme stats -->
 
 <p>
