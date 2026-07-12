@@ -75,7 +75,7 @@
 <!-- GitHub Streak Stats -->
 <p align="center">
   <a href="https://github.com/Yashasm18">
-    <img src="https://github-readme-streak-stats-seven-coral.vercel.app/?user=Yashasm18&theme=transparent&hide_border=true&v=5" alt="Yashas's GitHub Streak" />
+    <img src="https://github-readme-streak-stats.herokuapp.com/?user=Yashasm18&theme=transparent&hide_border=true&v=5" alt="Yashas's GitHub Streak" />
   </a>
 </p>
 
