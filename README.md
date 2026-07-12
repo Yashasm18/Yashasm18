@@ -67,8 +67,8 @@
 
 <p>
   <a href="https://github.com/Yashasm18">
-    <img height="180em" alt="Yashas's github stats" src="https://github-stats-extended-eta.vercel.app/api?username=Yashasm18&include_all_commits=true&count_private=true&show_icons=true&hide_border=true&theme=transparent&v=1" />
-    <img height="180em" src="https://github-stats-extended-eta.vercel.app/api/top-langs/?username=Yashasm18&include_all_commits=true&show_icons=true&hide_border=true&layout=compact&theme=transparent&v=1" />
+    <img height="180em" alt="Yashas's github stats" src="https://github-stats-extended-henna.vercel.app/api?username=Yashasm18&include_all_commits=true&count_private=true&show_icons=true&hide_border=true&title_color=1F8C9E&icon_color=1F8C9E&text_color=9F9F9F&bg_color=151515" />
+    <img height="180em" src="https://github-stats-extended-henna.vercel.app/api/top-langs/?username=Yashasm18&layout=compact&hide_border=true&title_color=1F8C9E&icon_color=1F8C9E&text_color=9F9F9F&bg_color=151515" />
   </a>
 </p>
 
