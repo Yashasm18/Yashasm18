@@ -67,15 +67,15 @@
 
 <p>
   <a href="https://github.com/Yashasm18">
-    <img height="180em" alt="Yashas's github stats" src="https://github-stats-extended-henna.vercel.app/api?username=Yashasm18&include_all_commits=true&count_private=true&show_icons=true&hide_border=true&title_color=1F8C9E&icon_color=1F8C9E&text_color=9F9F9F&bg_color=151515&v=4" />
-    <img height="180em" src="https://github-stats-extended-henna.vercel.app/api/top-langs/?username=Yashasm18&layout=compact&hide_border=true&title_color=1F8C9E&icon_color=1F8C9E&text_color=9F9F9F&bg_color=151515&v=4" />
+    <img height="180em" alt="Yashas's github stats" src="https://github-stats-extended-henna.vercel.app/api?username=Yashasm18&include_all_commits=true&count_private=true&show_icons=true&hide_border=true&title_color=1F8C9E&icon_color=1F8C9E&text_color=9F9F9F&bg_color=151515&v=5" />
+    <img height="180em" src="https://github-stats-extended-henna.vercel.app/api/top-langs/?username=Yashasm18&layout=compact&hide_border=true&title_color=1F8C9E&icon_color=1F8C9E&text_color=9F9F9F&bg_color=151515&v=5" />
   </a>
 </p>
 
 <!-- GitHub Streak Stats -->
 <p align="center">
   <a href="https://github.com/Yashasm18">
-    <img src="https://github-readme-streak-stats.herokuapp.com/?user=Yashasm18&theme=transparent&hide_border=true&v=4" alt="Yashas's GitHub Streak" />
+    <img src="https://github-readme-streak-stats-seven-coral.vercel.app/?user=Yashasm18&theme=transparent&hide_border=true&v=5" alt="Yashas's GitHub Streak" />
   </a>
 </p>
 
