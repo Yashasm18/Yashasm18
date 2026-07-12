@@ -13,13 +13,10 @@
 <!-- Your badges -->
 
 [![Portfolio](https://img.shields.io/badge/-Portfolio-0366d6?style=flat&logo=google-chrome&logoColor=white)](https://github.com/Yashasm18)
-[![LinkedIn](https://img.shields.io/badge/-LinkedIn-0A66C2?style=flat&logo=linkedin&logoColor=white)](https://linkedin.com/in/)
+[![LinkedIn](https://img.shields.io/badge/-LinkedIn-0A66C2?style=flat&logo=linkedin&logoColor=white)](https://linkedin.com/in/yashasm18)
 
 <!-- Talking about you -->
 ## Talking about Personal Stuffs:
-
-<!-- Any image aligned to the right. Beware the width -->
-<img width="55%" align="right" alt="Github" src="https://raw.githubusercontent.com/TroyMitchell911/Troymitchell911/main/git-header.svg" />
 
 - 👨🏽‍💻 I'm currently working on **AI-powered applications**;
 - 🌱 I'm currently learning **Full Stack Development & AI/ML**;
