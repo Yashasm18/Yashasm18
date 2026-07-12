@@ -24,6 +24,45 @@ jobs:
           path: profile/streak.svg
           token: ${{ secrets.STREAK_STATS_TOKEN }}
 
+      - name: Offset Total Contributions
+        run: |
+          # The user has 40 commits that occurred prior to their account creation date (Sep 25, 2025).
+          # github-readme-streak-stats only queries from the account creation date, missing these 40 commits.
+          # We extract the Total Contributions number from the SVG, add 40, and replace it.
+          # The number is located directly after the "<!-- Total Contributions big number -->" block.
+          
+          # Read the SVG
+          content=$(cat profile/streak.svg)
+          
+          # Use python to perform the precise replacement
+          python3 -c "
+          import re
+          import sys
+          
+          with open('profile/streak.svg', 'r') as f:
+              svg = f.read()
+              
+          # Find the big number for total contributions
+          # It's inside a <g> right after <!-- Total Contributions big number -->
+          pattern = r'(<!-- Total Contributions big number -->.*?<text[^>]*>\s*)([0-9,]+)(\s*</text>)'
+          
+          def replacer(match):
+              prefix = match.group(1)
+              number_str = match.group(2).replace(',', '')
+              suffix = match.group(3)
+              new_number = int(number_str) + 40
+              return f'{prefix}{new_number:,}{suffix}'
+              
+          new_svg, count = re.subn(pattern, replacer, svg, flags=re.DOTALL)
+          
+          if count == 0:
+              print('Warning: Could not find Total Contributions number in SVG')
+              sys.exit(1)
+              
+          with open('profile/streak.svg', 'w') as f:
+              f.write(new_svg)
+          "
+          
       - name: Commit streak stats
         run: |
           git config user.name "github-actions[bot]"
