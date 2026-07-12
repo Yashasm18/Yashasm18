@@ -75,7 +75,7 @@
 <!-- GitHub Streak Stats -->
 <p align="center">
   <a href="https://github.com/Yashasm18">
-    <img src="https://github-readme-streak-stats.herokuapp.com/?user=Yashasm18&background=151515&stroke=151515&ring=1F8C9E&fire=1F8C9E&currStreakNum=1F8C9E&sideNums=1F8C9E&currStreakLabel=9F9F9F&sideLabels=9F9F9F&dates=9F9F9F&hide_border=true&v=6" alt="Yashas's GitHub Streak" />
+    <img src="profile/streak.svg" alt="Yashas's GitHub Streak" />
   </a>
 </p>
 
