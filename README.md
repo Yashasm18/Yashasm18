@@ -67,15 +67,15 @@
 
 <p>
   <a href="https://github.com/Yashasm18">
-    <img height="180em" alt="Yashas's github stats" src="https://github-readme-stats.vercel.app/api?username=Yashasm18&include_all_commits=true&show_icons=true&hide_border=true&theme=transparent" />
-    <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Yashasm18&include_all_commits=true&show_icons=true&hide_border=true&layout=compact&theme=transparent" />
+    <img height="180em" alt="Yashas's github stats" src="https://github-readme-stats.vercel.app/api?username=Yashasm18&include_all_commits=true&count_private=true&show_icons=true&hide_border=true&theme=transparent&v=1" />
+    <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Yashasm18&include_all_commits=true&show_icons=true&hide_border=true&layout=compact&theme=transparent&v=1" />
   </a>
 </p>
 
 <!-- GitHub Streak Stats -->
 <p align="center">
   <a href="https://github.com/Yashasm18">
-    <img src="https://github-readme-streak-stats.herokuapp.com/?user=Yashasm18&theme=transparent&hide_border=true" alt="Yashas's GitHub Streak" />
+    <img src="https://github-readme-streak-stats.herokuapp.com/?user=Yashasm18&theme=transparent&hide_border=true&v=1" alt="Yashas's GitHub Streak" />
   </a>
 </p>
 
