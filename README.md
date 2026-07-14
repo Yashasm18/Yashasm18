@@ -1,6 +1,6 @@
 <!-- Orbit 3D hero — looping render, tech stack orbiting the core in 3D -->
 <p align="center">
-  <video src="https://raw.githubusercontent.com/Yashasm18/Yashasm18/main/profile/orbit.mp4" autoplay loop muted playsinline width="100%"></video>
+  <img src="profile/orbit.gif" alt="Tech stack orbiting a glowing core in 3D" width="100%" />
 </p>
 
 <h1 align="center">Yashas M</h1>
