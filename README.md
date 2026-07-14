@@ -1,9 +1,11 @@
-<!-- Orbit 3D hero — looping render, tech stack orbiting the core in 3D -->
+<!-- Orbit 3D hero — click through to the live interactive version (GitHub strips <video>/<iframe> from READMEs, so a GIF is the most that can render inline) -->
+<a href="https://yashasm18.github.io/orbit-3d/">
+  <p align="center">
+    <img src="profile/orbit.gif" alt="Tech stack orbiting a glowing core in 3D — click to open the interactive version" width="100%" />
+  </p>
+</a>
 <p align="center">
-  <img src="profile/orbit.gif" alt="Tech stack orbiting a glowing core in 3D" width="100%" />
-</p>
-<p align="center">
-  <a href="https://yashasm18.github.io/orbit-3d/"><img src="https://img.shields.io/badge/🪐_View_interactive_3D-drag_to_orbit,_scroll_to_travel-a78bfa?style=for-the-badge&labelColor=010102" alt="View interactive 3D" /></a>
+  <a href="https://yashasm18.github.io/orbit-3d/"><img src="https://img.shields.io/badge/🪐_Click_the_hero_above_to_explore_it_live-drag_to_orbit,_scroll_to_travel-a78bfa?style=for-the-badge&labelColor=010102" alt="View interactive 3D" /></a>
 </p>
 
 <h1 align="center">Yashas M</h1>
