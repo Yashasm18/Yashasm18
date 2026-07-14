@@ -3,7 +3,7 @@
   <video src="https://raw.githubusercontent.com/Yashasm18/Yashasm18/main/profile/orbit.mp4" autoplay loop muted playsinline width="100%"></video>
 </p>
 
-<h1 align="center">Yashas</h1>
+<h1 align="center">Yashas M</h1>
 <p align="center"><i>Full-stack developer building AI-powered applications · Bengaluru, India</i></p>
 
 <p align="center">
