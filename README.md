@@ -2,6 +2,9 @@
 <p align="center">
   <img src="profile/orbit.gif" alt="Tech stack orbiting a glowing core in 3D" width="100%" />
 </p>
+<p align="center">
+  <a href="https://yashasm18.github.io/orbit-3d/"><img src="https://img.shields.io/badge/🪐_View_interactive_3D-drag_to_orbit,_scroll_to_travel-a78bfa?style=for-the-badge&labelColor=010102" alt="View interactive 3D" /></a>
+</p>
 
 <h1 align="center">Yashas M</h1>
 <p align="center"><i>Full-stack developer building AI-powered applications · Bengaluru, India</i></p>
