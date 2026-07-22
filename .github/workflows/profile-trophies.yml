@@ -33,11 +33,11 @@ jobs:
 
       - name: Save updated trophies
         run: |
-          if git diff --quiet -- profile/trophies.svg; then
+          git add profile/trophies.svg
+          if git diff --cached --quiet; then
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add profile/trophies.svg
           git commit -m "Update profile trophies"
           git push
