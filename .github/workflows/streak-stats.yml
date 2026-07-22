@@ -4,8 +4,9 @@ on:
   schedule:
     - cron: "*/30 * * * *"
   push:
-    paths:
-      - ".github/workflows/streak-stats.yml" # Run any time this file is modified
+    paths-ignore:
+      # The workflow commits this generated file itself; do not start another run for it.
+      - "profile/streak.svg"
   workflow_dispatch: # Run manually from the Actions tab
 
 jobs:
