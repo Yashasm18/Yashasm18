@@ -57,7 +57,7 @@
 ## Trophies
 
 <p align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=Yashasm18&theme=radical&no-frame=true&no-bg=true&margin-w=8&column=7" alt="Trophies" />
+  <img src="https://raw.githubusercontent.com/Yashasm18/Yashasm18/main/profile/trophies.svg" alt="Yashas's GitHub trophies" width="100%" />
 </p>
 
 <img src="profile/divider.svg" width="100%" height="4" alt="" />
