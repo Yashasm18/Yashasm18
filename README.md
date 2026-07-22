@@ -48,6 +48,14 @@
   <img src="https://github-readme-activity-graph.vercel.app/graph?username=Yashasm18&custom_title=Commit%20Activity&bg_color=010102&color=7dd3fc&line=a78bfa&point=e9e9f5&area=true&area_color=a78bfa&hide_border=true" alt="Commit activity graph" width="100%" />
 </p>
 
+## Contribution snake
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Yashasm18/Yashasm18/output/github-contribution-grid-snake-dark.svg" alt="Snake animation eating Yashas's GitHub contributions" width="100%" />
+</p>
+
+## Trophies
+
 <p align="center">
   <img src="https://github-profile-trophy.vercel.app/?username=Yashasm18&theme=radical&no-frame=true&no-bg=true&margin-w=8&column=7" alt="Trophies" />
 </p>
