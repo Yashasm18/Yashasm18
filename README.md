@@ -57,7 +57,7 @@
 ## Trophies
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Yashasm18/Yashasm18/main/profile/trophies.svg" alt="Yashas's GitHub trophies" width="100%" />
+  <img src="https://raw.githubusercontent.com/Yashasm18/Yashasm18/main/profile/trophies.svg?v=6d02ead" alt="Yashas's GitHub trophies" width="100%" />
 </p>
 
 <img src="profile/divider.svg" width="100%" height="4" alt="" />
