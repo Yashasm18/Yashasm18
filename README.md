@@ -35,7 +35,7 @@
 
 ## Live stats
 
-<p>
+<p align="center">
   <img height="165em" alt="Yashas's GitHub stats" src="https://github-stats-extended-henna.vercel.app/api?username=Yashasm18&include_all_commits=true&count_private=true&show_icons=true&hide_border=true&title_color=a78bfa&icon_color=7dd3fc&text_color=b9bcd9&bg_color=010102" />
   <img height="165em" alt="Top languages" src="https://github-stats-extended-henna.vercel.app/api/top-langs/?username=Yashasm18&layout=compact&hide_border=true&title_color=a78bfa&icon_color=7dd3fc&text_color=b9bcd9&bg_color=010102" />
 </p>
