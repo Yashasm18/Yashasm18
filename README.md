@@ -17,9 +17,9 @@
 
 <br />
 
-- 👨🏽‍💻 Currently working on **AI-powered applications**
-- 🌱 Currently learning **Full-Stack Development & AI/ML**
-- 👯 Looking to collaborate on **open-source projects**
+- 👨🏽‍💻 Currently working on AI-powered applications
+- 🌱 Currently learning Full-Stack Development & AI/ML
+- 👯 Looking to collaborate on open-source projects
 - 💬 Ask me about anything — always happy to help
 - ⚡ Fun fact: I love building things that make a difference
 
