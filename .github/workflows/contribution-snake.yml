@@ -2,11 +2,17 @@ name: Generate contribution snake
 
 on:
   schedule:
-    - cron: "0 0 * * *"
+    # Run every 6 hours to keep the snake animation fresh
+    - cron: "0 */6 * * *"
   workflow_dispatch:
   push:
     branches:
       - main
+
+# Prevent duplicate runs from racing each other
+concurrency:
+  group: contribution-snake
+  cancel-in-progress: true
 
 permissions:
   contents: write

@@ -2,12 +2,18 @@ name: Update streak stats
 
 on:
   schedule:
-    - cron: "*/30 * * * *"
+    # Run every 15 minutes for fast contribution tracking
+    - cron: "*/15 * * * *"
   push:
     paths-ignore:
       # The workflow commits this generated file itself; do not start another run for it.
       - "profile/streak.svg"
   workflow_dispatch: # Run manually from the Actions tab
+
+# Prevent duplicate runs from racing each other and creating push conflicts
+concurrency:
+  group: streak-stats
+  cancel-in-progress: true
 
 jobs:
   build:
@@ -17,6 +23,10 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          # Always work on the absolute latest commit to avoid push conflicts
+          ref: main
+          fetch-depth: 1
 
       - name: Generate streak stats
         uses: DenverCoder1/github-readme-streak-stats@main
@@ -30,44 +40,53 @@ jobs:
           # The user has 40 commits that occurred prior to their account creation date (Sep 25, 2025).
           # github-readme-streak-stats only queries from the account creation date, missing these 40 commits.
           # We extract the Total Contributions number from the SVG, add 40, and replace it.
-          # The number is located directly after the "<!-- Total Contributions big number -->" block.
-          
-          # Read the SVG
-          content=$(cat profile/streak.svg)
-          
-          # Use python to perform the precise replacement
+
           python3 -c "
           import re
           import sys
-          
+
           with open('profile/streak.svg', 'r') as f:
               svg = f.read()
-              
+
           # Find the big number for total contributions
           # It's inside a <g> right after <!-- Total Contributions big number -->
           pattern = r'(<!-- Total Contributions big number -->.*?<text[^>]*>\s*)([0-9,]+)(\s*</text>)'
-          
+
           def replacer(match):
               prefix = match.group(1)
               number_str = match.group(2).replace(',', '')
               suffix = match.group(3)
               new_number = int(number_str) + 40
               return f'{prefix}{new_number:,}{suffix}'
-              
+
           new_svg, count = re.subn(pattern, replacer, svg, flags=re.DOTALL)
-          
+
           if count == 0:
-              print('Warning: Could not find Total Contributions number in SVG')
+              print('ERROR: Could not find Total Contributions number in SVG')
               sys.exit(1)
-              
+
           with open('profile/streak.svg', 'w') as f:
               f.write(new_svg)
+
+          print(f'Successfully offset Total Contributions (+40)')
           "
-          
-      - name: Commit streak stats
+
+      - name: Commit and push streak stats
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add profile/streak.svg
-          git commit -m "Update streak stats" || exit 0
-          git push
+
+          # Only commit if the SVG actually changed (avoids empty commit noise)
+          if git diff --cached --quiet; then
+            echo "No changes to streak stats — skipping commit"
+            exit 0
+          fi
+
+          git commit -m "Update streak stats"
+
+          # Pull latest changes before pushing to avoid rejection
+          # Use rebase to keep a clean linear history
+          git pull --rebase origin main
+
+          git push origin main
