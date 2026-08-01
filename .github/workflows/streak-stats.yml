@@ -83,6 +83,10 @@ jobs:
             exit 0
           fi
 
+          # Update cache-buster query parameter in README.md to purge GitHub Camo CDN cache
+          sed -i 's|profile/streak.svg?v=[^"]*|profile/streak.svg?v='$(date +%s)'|g' README.md
+          git add README.md
+
           git commit -m "Update streak stats"
 
           # Pull latest changes before pushing to avoid rejection
@@ -90,3 +94,4 @@ jobs:
           git pull --rebase origin main
 
           git push origin main
+
