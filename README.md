@@ -45,7 +45,7 @@
 </p>
 
 <p align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=Yashasm18&custom_title=Commit%20Activity&bg_color=010102&color=7dd3fc&line=a78bfa&point=e9e9f5&area=true&area_color=a78bfa&hide_border=true" alt="Commit activity graph" width="100%" />
+  <img src="https://activity-graph.vercel.app/graph?username=Yashasm18&custom_title=Commit%20Activity&bg_color=010102&color=7dd3fc&line=a78bfa&point=e9e9f5&area=true&area_color=a78bfa&hide_border=true" alt="Commit activity graph" width="100%" />
 </p>
 
 ## Contribution snake
