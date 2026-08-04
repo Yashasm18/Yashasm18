@@ -18,8 +18,8 @@
 <br />
 
 - 👨🏽‍💻 Currently working on AI-powered applications
-- 🌱 Currently learning Full-Stack Development & AI/ML
-- 👯 Looking to collaborate on open-source projects
+- 🌱 Currently learning Full-Stack Development & AI/ML and also grinding DSA!
+- 👯 Looking to collaborate on open-source projects (did some you can check it out)
 - 💬 Ask me about anything — always happy to help
 - ⚡ Fun fact: I love building things that make a difference
 
