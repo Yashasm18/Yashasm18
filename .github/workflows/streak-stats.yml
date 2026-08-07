@@ -2,8 +2,8 @@ name: Update streak stats
 
 on:
   schedule:
-    # Run every 15 minutes for fast contribution tracking
-    - cron: "*/15 * * * *"
+    # Run every 6 hours — keeps stats fresh without burning CI minutes
+    - cron: "0 */6 * * *"
   push:
     paths-ignore:
       # The workflow commits this generated file itself; do not start another run for it.
@@ -26,10 +26,11 @@ jobs:
         with:
           # Always work on the absolute latest commit to avoid push conflicts
           ref: main
-          fetch-depth: 1
+          # Full history required so git pull --rebase always succeeds
+          fetch-depth: 0
 
       - name: Generate streak stats
-        uses: DenverCoder1/github-readme-streak-stats@main
+        uses: DenverCoder1/github-readme-streak-stats@v1.5.0
         with:
           options: user=${{ github.repository_owner }}&background=010102&stroke=010102&ring=a78bfa&fire=7dd3fc&currStreakNum=e9e9f5&sideNums=e9e9f5&currStreakLabel=b9bcd9&sideLabels=b9bcd9&dates=8890c0&hide_border=true&timezone=Asia/Kolkata&v=8
           path: profile/streak.svg
@@ -94,4 +95,3 @@ jobs:
           git pull --rebase origin main
 
           git push origin main
-
