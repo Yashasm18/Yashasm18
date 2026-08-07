@@ -48,27 +48,6 @@
   <img src="https://activity-graph.vercel.app/graph?username=Yashasm18&custom_title=Commit%20Activity&bg_color=010102&color=7dd3fc&line=a78bfa&point=e9e9f5&area=true&area_color=a78bfa&hide_border=true" alt="Commit activity graph" width="100%" />
 </p>
 
-## Recent activity
-
-<!--START_SECTION:activity-->
-1. ❌ Closed PR [#1](https://github.com/Yashasm18/yashas-portfolio/pull/1) in [Yashasm18/yashas-portfolio](https://github.com/Yashasm18/yashas-portfolio)
-2. 🎉 Merged PR [#3](https://github.com/Yashasm18/yashas-portfolio/pull/3) in [Yashasm18/yashas-portfolio](https://github.com/Yashasm18/yashas-portfolio)
-3. 💪 Opened PR [#3](https://github.com/Yashasm18/yashas-portfolio/pull/3) in [Yashasm18/yashas-portfolio](https://github.com/Yashasm18/yashas-portfolio)
-4. 🎉 Merged PR [#2](https://github.com/Yashasm18/yashas-portfolio/pull/2) in [Yashasm18/yashas-portfolio](https://github.com/Yashasm18/yashas-portfolio)
-5. 💪 Opened PR [#2](https://github.com/Yashasm18/yashas-portfolio/pull/2) in [Yashasm18/yashas-portfolio](https://github.com/Yashasm18/yashas-portfolio)
-6. 🎉 Merged PR [#16](https://github.com/Yashasm18/Torvaix/pull/16) in [Yashasm18/Torvaix](https://github.com/Yashasm18/Torvaix)
-7. 💪 Opened PR [#16](https://github.com/Yashasm18/Torvaix/pull/16) in [Yashasm18/Torvaix](https://github.com/Yashasm18/Torvaix)
-8. 🎉 Merged PR [#15](https://github.com/Yashasm18/Torvaix/pull/15) in [Yashasm18/Torvaix](https://github.com/Yashasm18/Torvaix)
-9. 💪 Opened PR [#15](https://github.com/Yashasm18/Torvaix/pull/15) in [Yashasm18/Torvaix](https://github.com/Yashasm18/Torvaix)
-10. 🎉 Merged PR [#3](https://github.com/Yashasm18/react-ecommerce-storefront/pull/3) in [Yashasm18/react-ecommerce-storefront](https://github.com/Yashasm18/react-ecommerce-storefront)
-<!--END_SECTION:activity-->
-
-## Activity overview
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/Yashasm18/Yashasm18/main/profile/metrics-activity.svg" alt="Activity overview — commits, PRs, issues and code review breakdown" width="100%" />
-</p>
-
 ## Contribution calendar
 
 <p align="center">
