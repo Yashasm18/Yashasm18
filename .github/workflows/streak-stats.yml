@@ -30,7 +30,7 @@ jobs:
           fetch-depth: 0
 
       - name: Generate streak stats
-        uses: DenverCoder1/github-readme-streak-stats@v1.5.0
+        uses: DenverCoder1/github-readme-streak-stats@v1.7.0
         with:
           options: user=${{ github.repository_owner }}&background=010102&stroke=010102&ring=a78bfa&fire=7dd3fc&currStreakNum=e9e9f5&sideNums=e9e9f5&currStreakLabel=b9bcd9&sideLabels=b9bcd9&dates=8890c0&hide_border=true&timezone=Asia/Kolkata&v=8
           path: profile/streak.svg
