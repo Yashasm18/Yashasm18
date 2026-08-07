@@ -48,6 +48,18 @@
   <img src="https://activity-graph.vercel.app/graph?username=Yashasm18&custom_title=Commit%20Activity&bg_color=010102&color=7dd3fc&line=a78bfa&point=e9e9f5&area=true&area_color=a78bfa&hide_border=true" alt="Commit activity graph" width="100%" />
 </p>
 
+## Activity overview
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Yashasm18/Yashasm18/main/profile/metrics-activity.svg" alt="Activity overview — commits, PRs, issues and code review breakdown" width="100%" />
+</p>
+
+## Contribution calendar
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Yashasm18/Yashasm18/main/profile/metrics-isocalendar.svg" alt="3D isometric contribution calendar" width="100%" />
+</p>
+
 ## Contribution snake
 
 <p align="center">
