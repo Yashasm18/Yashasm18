@@ -28,7 +28,7 @@ jobs:
 
       # ── Activity overview (Commits / PRs / Issues / Code review breakdown) ──
       - name: Activity overview
-        uses: lowlighter/metrics@v3.34.0
+        uses: lowlighter/metrics@v3.34
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           filename: profile/metrics-activity.svg
@@ -43,7 +43,7 @@ jobs:
 
       # ── 3D isometric contribution calendar ──
       - name: Isometric calendar
-        uses: lowlighter/metrics@v3.34.0
+        uses: lowlighter/metrics@v3.34
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           filename: profile/metrics-isocalendar.svg
