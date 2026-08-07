@@ -2,7 +2,6 @@ name: Generate metrics
 
 on:
   schedule:
-    # Runs every day at midnight IST (18:30 UTC)
     - cron: "30 18 * * *"
   workflow_dispatch:
   push:
@@ -27,47 +26,28 @@ jobs:
           ref: main
           fetch-depth: 0
 
-      # ── 1. Activity overview radar chart (Commits / PRs / Issues / Code review) ──
+      # ── Activity overview (Commits / PRs / Issues / Code review breakdown) ──
       - name: Activity overview
-        uses: lowlighter/metrics@latest
+        uses: lowlighter/metrics@v3.34.0
         with:
-          token: ${{ secrets.METRICS_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           filename: profile/metrics-activity.svg
+          user: Yashasm18
           base: activity
           plugin_followup: yes
           plugin_followup_sections: repositories
-          plugin_habits: yes
-          plugin_habits_from: 200
-          plugin_habits_days: 14
-          plugin_habits_facts: no
-          plugin_habits_charts: yes
-          plugin_habits_charts_type: graph
           config_timezone: Asia/Kolkata
           config_display: large
           config_animations: yes
-          config_padding: 8, 14
-          # Dark theme matching your profile colors
-          config_base64: no
-          extras_css: |
-            :root {
-              --color-bg: #010102;
-              --color-bg-secondary: #0d0d1a;
-              --color-border: #1e1e3a;
-              --color-text: #e9e9f5;
-              --color-text-secondary: #b9bcd9;
-              --color-accent: #a78bfa;
-              --color-accent-2: #7dd3fc;
-            }
-            .header { background: #010102 !important; }
-            .markdown { background: #010102 !important; }
           output_action: none
 
-      # ── 2. Contribution calendar (isometric 3D heatmap) ──
+      # ── 3D isometric contribution calendar ──
       - name: Isometric calendar
-        uses: lowlighter/metrics@latest
+        uses: lowlighter/metrics@v3.34.0
         with:
-          token: ${{ secrets.METRICS_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           filename: profile/metrics-isocalendar.svg
+          user: Yashasm18
           base: ""
           plugin_isocalendar: yes
           plugin_isocalendar_duration: full-year
@@ -76,7 +56,7 @@ jobs:
           config_animations: yes
           output_action: none
 
-      # ── 3. Commit and push all generated SVGs ──
+      # ── Commit and push all generated SVGs ──
       - name: Commit and push metrics
         run: |
           git config user.name "github-actions[bot]"
