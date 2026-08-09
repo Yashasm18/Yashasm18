@@ -10,7 +10,7 @@
 <p align="center"><i>Full-stack developer building AI-powered applications · Bengaluru, India</i></p>
 
 <p align="center">
-  <a href="https://github.com/Yashasm18"><img src="https://img.shields.io/badge/-Portfolio-a78bfa?style=flat-square&logo=google-chrome&logoColor=white" alt="Portfolio" /></a>
+  <a href="https://yashas-portfolio-mauve.vercel.app/"><img src="https://img.shields.io/badge/-Portfolio-a78bfa?style=flat-square&logo=google-chrome&logoColor=white" alt="Portfolio" /></a>
   <a href="https://linkedin.com/in/yashasm18"><img src="https://img.shields.io/badge/-LinkedIn-7dd3fc?style=flat-square&logo=linkedin&logoColor=0a0a12" alt="LinkedIn" /></a>
   <img src="https://komarev.com/ghpvc/?username=Yashasm18&label=Profile%20views&color=a78bfa&style=flat-square" alt="Profile views" />
 </p>
