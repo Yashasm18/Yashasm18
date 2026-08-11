@@ -2,13 +2,14 @@ name: Update streak stats
 
 on:
   schedule:
-    # Run every 6 hours — keeps stats fresh without burning CI minutes
-    - cron: "0 */6 * * *"
+    # Run every 2 hours — keeps streak stats fresh throughout the day
+    - cron: "0 */2 * * *"
   push:
     paths-ignore:
       # The workflow commits this generated file itself; do not start another run for it.
       - "profile/streak.svg"
   workflow_dispatch: # Run manually from the Actions tab
+  repository_dispatch: # Allow external triggers
 
 # Prevent duplicate runs from racing each other and creating push conflicts
 concurrency:

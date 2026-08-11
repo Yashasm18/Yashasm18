@@ -2,9 +2,10 @@ name: Generate contribution snake
 
 on:
   schedule:
-    # Run every 6 hours to keep the snake animation fresh
-    - cron: "0 */6 * * *"
+    # Run every 3 hours to keep the snake animation fresh
+    - cron: "0 */3 * * *"
   workflow_dispatch:
+  repository_dispatch:
   push:
     branches:
       - main
