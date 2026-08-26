@@ -1,21 +1,73 @@
 #!/usr/bin/env python3
 """
 Robust GitHub Streak Stats Generator & Fallback Tool
-- Fetches contributions directly from GitHub's public contribution calendar.
-- Correctly parses the modern GitHub DOM structure (mapping tool-tips to date cells).
-- Accurately computes current streak, longest streak, and total contributions with timezone awareness (Asia/Kolkata default).
-- Updates or generates the themed profile/streak.svg file.
+- Fetches contributions via GitHub GraphQL API when GITHUB_TOKEN is present.
+- Falls back to parsing public contribution calendar HTML if unauthenticated or GraphQL fails.
+- Accurately computes current streak, longest streak, and total contributions with timezone awareness (default: Asia/Kolkata +5:30).
+- Generates or updates the custom-themed profile/streak.svg file.
 """
 
 import argparse
 import datetime
+import json
 import os
 import re
 import sys
+import urllib.error
 import urllib.request
 
 
+def fetch_contributions_graphql(username, token):
+    """Fetch contribution history and total contributions using GitHub GraphQL API."""
+    url = "https://api.github.com/graphql"
+    query = """
+    query($login: String!) {
+      user(login: $login) {
+        contributionsCollection {
+          contributionCalendar {
+            totalContributions
+            weeks {
+              contributionDays {
+                date
+                contributionCount
+              }
+            }
+          }
+        }
+      }
+    }
+    """
+    payload = json.dumps({"query": query, "variables": {"login": username}}).encode("utf-8")
+    headers = {
+        "Authorization": f"Bearer {token}",
+        "Content-Type": "application/json",
+        "User-Agent": "GitHub-Streak-Stats/2.0",
+    }
+    req = urllib.request.Request(url, data=payload, headers=headers)
+    try:
+        with urllib.request.urlopen(req, timeout=15) as resp:
+            data = json.loads(resp.read().decode("utf-8"))
+            if "errors" in data:
+                print(f"GraphQL error: {data['errors']}", file=sys.stderr)
+                return None
+            calendar = data.get("data", {}).get("user", {}).get("contributionsCollection", {}).get("contributionCalendar")
+            if not calendar:
+                return None
+
+            total = calendar.get("totalContributions", 0)
+            contributions = {}
+            for week in calendar.get("weeks", []):
+                for day in week.get("contributionDays", []):
+                    contributions[day["date"]] = day.get("contributionCount", 0)
+
+            return total, contributions
+    except Exception as e:
+        print(f"GraphQL request failed: {e}", file=sys.stderr)
+        return None
+
+
 def fetch_contributions_html(username):
+    """Fetch public contributions HTML from GitHub profile as a fallback."""
     url = f"https://github.com/users/{username}/contributions"
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
@@ -23,13 +75,11 @@ def fetch_contributions_html(username):
     req = urllib.request.Request(url, headers=headers)
     try:
         with urllib.request.urlopen(req, timeout=20) as resp:
-            return resp.read().decode("utf-8")
+            html = resp.read().decode("utf-8")
     except Exception as e:
         print(f"Error fetching contributions HTML: {e}", file=sys.stderr)
         return None
 
-
-def calculate_streak_data(html, offset=40, tz_hours=5.5):
     # Match all td elements with date, id, and data-level
     td_matches = re.findall(
         r'<td[^>]*data-date="(\d{4}-\d{2}-\d{2})"[^>]*id="([^"]+)"',
@@ -62,19 +112,27 @@ def calculate_streak_data(html, offset=40, tz_hours=5.5):
         print("Could not parse contribution days from HTML", file=sys.stderr)
         return None
 
-    sorted_dates = sorted(contributions.keys())
+    return total, contributions
 
-    # User timezone (default: Asia/Kolkata +5:30)
+
+def calculate_streak_data(total, contributions, offset=40, tz_hours=5.5):
+    """
+    Calculate current streak, longest streak, and date ranges based on contributions
+    and the user's timezone.
+    """
     tz = datetime.timezone(datetime.timedelta(hours=tz_hours))
     now_tz = datetime.datetime.now(tz)
     today_str = now_tz.strftime("%Y-%m-%d")
     yesterday_str = (now_tz - datetime.timedelta(days=1)).strftime("%Y-%m-%d")
 
+    # Filter dates up to today in the user's timezone
+    sorted_dates = [d for d in sorted(contributions.keys()) if d <= today_str]
+
     # Current streak calculation:
     # 1. If today has contributions > 0, streak is active and ends today.
     # 2. If today has 0 contributions, but yesterday has > 0 contributions,
-    #    streak is STILL ACTIVE and ends yesterday (today is still ongoing).
-    # 3. If both today and yesterday have 0 contributions, streak is broken (0).
+    #    streak is STILL ACTIVE and ends yesterday (today is ongoing).
+    # 3. If both today and yesterday have 0 contributions, streak is 0.
     current_streak = 0
     streak_start = None
     streak_end = None
@@ -106,7 +164,7 @@ def calculate_streak_data(html, offset=40, tz_hours=5.5):
         streak_start = None
         streak_end = today_str
 
-    # Longest streak calculation across the entire retrieved history
+    # Longest streak calculation across history
     longest_streak = 0
     l_start = None
     l_end = None
@@ -114,7 +172,7 @@ def calculate_streak_data(html, offset=40, tz_hours=5.5):
     cur_start = None
 
     for d in sorted_dates:
-        if contributions[d] > 0:
+        if contributions.get(d, 0) > 0:
             if cur_len == 0:
                 cur_start = d
             cur_len += 1
@@ -135,7 +193,7 @@ def calculate_streak_data(html, offset=40, tz_hours=5.5):
         if not d_str:
             return ""
         dt = datetime.datetime.strptime(d_str, "%Y-%m-%d")
-        return dt.strftime("%b %-d")
+        return f"{dt.strftime('%b')} {dt.day}"
 
     curr_range = f"{fmt_date(streak_start)} - {fmt_date(streak_end)}" if current_streak > 0 else fmt_date(today_str)
     longest_range = f"{fmt_date(l_start)} - {fmt_date(l_end)}" if longest_streak > 0 else ""
@@ -334,18 +392,33 @@ def main():
     parser.add_argument("--path", default="profile/streak.svg", help="Path to streak.svg")
     parser.add_argument("--offset", type=int, default=40, help="Offset for total contributions")
     parser.add_argument("--timezone-hours", type=float, default=5.5, help="UTC offset hours (default: 5.5 for IST)")
+    parser.add_argument("--token", default=None, help="GitHub Personal Access Token (or GITHUB_TOKEN env var)")
     args = parser.parse_args()
 
-    print(f"Fetching contribution data for {args.username}...")
-    html = fetch_contributions_html(args.username)
-    if not html:
-        print("Could not fetch HTML contributions", file=sys.stderr)
+    token = args.token or os.environ.get("GITHUB_TOKEN")
+    fetched = None
+
+    if token:
+        print(f"Fetching contribution data for {args.username} via GitHub GraphQL API...")
+        fetched = fetch_contributions_graphql(args.username, token)
+        if fetched:
+            print("Successfully fetched contribution data via GraphQL.")
+
+    if not fetched:
+        print(f"Fetching contribution data for {args.username} via public HTML scraper...")
+        fetched = fetch_contributions_html(args.username)
+        if fetched:
+            print("Successfully fetched contribution data via HTML scraper.")
+
+    if not fetched:
+        print("Failed to retrieve contribution data from both GraphQL and HTML.", file=sys.stderr)
+        if os.path.exists(args.path):
+            print(f"Preserving existing {args.path} without modifications.")
+            sys.exit(0)
         sys.exit(1)
 
-    data = calculate_streak_data(html, offset=args.offset, tz_hours=args.timezone_hours)
-    if not data:
-        print("Failed to calculate streak data from HTML", file=sys.stderr)
-        sys.exit(1)
+    total, contributions = fetched
+    data = calculate_streak_data(total, contributions, offset=args.offset, tz_hours=args.timezone_hours)
 
     if not update_or_write_svg(args.path, data):
         sys.exit(1)

@@ -5,9 +5,12 @@ on:
     # Run every 30 minutes — keeps streak stats fresh throughout the day
     - cron: "*/30 * * * *"
   push:
+    branches:
+      - main
     paths-ignore:
-      # The workflow commits this generated file itself; do not start another run for it.
-      - "profile/streak.svg"
+      # Generated files and cache-busters should not trigger another run
+      - "profile/**"
+      - "README.md"
   workflow_dispatch: # Run manually from the Actions tab
   repository_dispatch: # Allow external triggers
 
@@ -30,16 +33,9 @@ jobs:
           # Full history required so git pull --rebase always succeeds
           fetch-depth: 0
 
-      - name: Generate streak stats (Action)
-        id: primary_streak
-        continue-on-error: true
-        uses: DenverCoder1/github-readme-streak-stats@v1.7.0
-        with:
-          options: user=${{ github.repository_owner }}&background=010102&stroke=010102&ring=a78bfa&fire=7dd3fc&currStreakNum=e9e9f5&sideNums=e9e9f5&currStreakLabel=b9bcd9&sideLabels=b9bcd9&dates=8890c0&hide_border=true&timezone=Asia/Kolkata&v=8
-          path: profile/streak.svg
-          token: ${{ secrets.STREAK_STATS_TOKEN }}
-
-      - name: Process streak stats & fallback
+      - name: Generate streak stats
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           python3 .github/scripts/update_streak.py --username "${{ github.repository_owner }}" --path profile/streak.svg --offset 40
 
