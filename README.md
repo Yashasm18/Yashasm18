@@ -41,7 +41,7 @@
 </p>
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Yashasm18/Yashasm18/main/profile/streak.svg?v=1791311414" alt="Yashas's GitHub streak" />
+  <img src="https://raw.githubusercontent.com/Yashasm18/Yashasm18/main/profile/streak.svg?v=1791397907" alt="Yashas's GitHub streak" />
 </p>
 
 <p align="center">
